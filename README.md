@@ -8,7 +8,7 @@ This project implements a smart heating system using FastAPI, PostgreSQL, and MQ
 
 1. create env and Install dependencies:
     ```bash
-    git clone  `repository url`
+    git clone https://github.com/th-karanveer/smart_heating_system
     cd smart_heating_system
     python -m venv env
     source env/bin/activate
@@ -25,7 +25,7 @@ This project implements a smart heating system using FastAPI, PostgreSQL, and MQ
    `sqlalchemy.url` in `alembic.ini`
 
    for example: "postgresql://user:password@localhost/smart_heating"
-   note: make sure the user has permissions for the respective database
+   note: update user and password in the above url and make sure the user has permissions for the respective database
 
 4. Run Migrations:
    ```base
@@ -39,5 +39,5 @@ This project implements a smart heating system using FastAPI, PostgreSQL, and MQ
     uvicorn app.main:app --reload
     ```
 
-7. Run `scripts.generate_test_data.py` to generate sample entries in Database for the decision component to work
+7. Run ` python scripts.generate_test_data.py` to generate sample entries in Database for the decision component to work
    (NOTE: OPTIONAL & FOR TESTING PURPOSE ONLY)

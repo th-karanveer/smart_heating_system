@@ -17,8 +17,7 @@ def disconnect_mqtt():
 
 def control_heating_system(device_id, state):
     control_message = json.dumps({
-        'device_id': device_id,
-        'command': state
+        'action': state
     })
     topic = f'heating_system/{device_id}/control'
     print(f"heating system: Published message on topic: {topic} for device_id {device_id} with state {state}")

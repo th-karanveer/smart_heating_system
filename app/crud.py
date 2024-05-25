@@ -29,7 +29,7 @@ def process_temperature_message(db: Session, payload: TemperaturePayload):
         if valid_temps:
             avg_temp = sum(valid_temps) / len(valid_temps)
             print(f"average temperature from device {payload.device_id} : {avg_temp}")
-            current_state = 'ON' if avg_temp < THRESHOLD else 'OFF'
+            current_state = 'turn_on' if avg_temp < THRESHOLD else 'turn_off'
 
             heating_state = db.query(HeatingSystemState).filter(HeatingSystemState.device_id == payload.device_id).first()
             if heating_state is None:

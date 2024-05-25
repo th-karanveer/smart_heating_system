@@ -27,6 +27,7 @@ def create_on_message(db):
 
     return on_message_closure
 
+
 def get_db():
     db = database.SessionLocal()
     try:
