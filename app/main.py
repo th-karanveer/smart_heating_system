@@ -1,7 +1,10 @@
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from . import models, crud, schemas, database, heating_system_mqtt_client, temperature_meter_mqtt_subscriber
+
+load_dotenv()
 
 app = FastAPI()
 

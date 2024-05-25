@@ -16,10 +16,12 @@ def disconnect_mqtt():
 
 
 def control_heating_system(device_id, state):
-    control_message = json.dumps({
-        'action': state
-    })
-    topic = f'heating_system/{device_id}/control'
-    print(f"heating system: Published message on topic: {topic} for device_id {device_id} with state {state}")
-    client.publish(topic, control_message)
-
+    try:
+        control_message = json.dumps({
+            'action': state
+        })
+        topic = f'heating_system/{device_id}/control'
+        print(f"heating system: Published message on topic: {topic} for device_id {device_id} with state {state}")
+        client.publish(topic, control_message)
+    except Exception as exx:
+        print(f"Exception in control_heating_system: {exx}")
